@@ -1,0 +1,27 @@
+.actionprice {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.actionprice>view:nth-child(2) {
+    font-size: 24rpx;
+    color: #999999;
+}
+
+.nactive {
+    color: #999999!important;
+}
+
+.actionprice>view:nth-child(1) {
+    display: flex;
+    height: 60rpx;
+    align-items: center;
+}
+
+.actionprice>view:nth-child(1) image {
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 5rpx;
+}

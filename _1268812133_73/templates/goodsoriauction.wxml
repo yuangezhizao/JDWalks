@@ -1,0 +1,34 @@
+<template name="goodsori">
+    <navigator hoverClass="navigator-hover" url="{{url}}">
+        <view class="goodsori page-container-padding goodsoriauction">
+            <view>
+                <view>{{auction_time}}</view>
+                <view class="{{class}}">{{statename}}</view>
+            </view>
+            <view>
+                <view>
+                    <image mode="aspectFill" src="{{gimgurl}}"></image>
+                </view>
+                <view>
+                    <view>
+                    {{gname}}
+                </view>
+                    <view class="actionprice">
+                        <view>
+                            <image src="/images/nb@2x.png"></image>
+                            <view>{{auction_price}}</view>
+                        </view>
+                        <view class="{{class}}">{{pricetips}}</view>
+                    </view>
+                </view>
+            </view>
+            <view>
+                <view>
+                我的出价
+                <text class="{{class}}">{{myprice}}</text>
+                {{coinname}}
+            </view>
+            </view>
+        </view>
+    </navigator>
+</template>

@@ -1,0 +1,3 @@
+@import "../../templates/goodsori.wxss";
+
+@import "../../templates/goodsoriauction.wxss";

@@ -1,0 +1,42 @@
+.jack {
+    height: 372rpx;
+    width: 100%;
+    margin-bottom: 30rpx;
+    position: relative;
+}
+
+.jack>view {
+    display: flex;
+    justify-content: space-between;
+    font-size: 32rpx;
+    align-items: center;
+}
+
+.jackimg {
+    width: 100%;
+    height: 276rpx;
+    border-radius: 12rpx;
+}
+
+.timestateimg {
+    position: absolute;
+    top: 20rpx;
+    right: -8rpx;
+    height: 48rpx;
+    width: 104rpx;
+}
+
+.mvbutton {
+    height: 50rpx;
+    width: 148rpx;
+    font-size: 24rpx;
+}
+
+.mvbutton:not(.join) {
+    background: linear-gradient(to right,#BBBBBB,#CCCCCC);
+}
+
+.date {
+    color: #AAAAAA;
+    font-size: 24rpx;
+}

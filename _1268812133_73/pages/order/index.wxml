@@ -1,0 +1,66 @@
+<view class="order">
+    <view class="oheader">
+        <image src="/images/kuaidi.png"></image>
+        <view class="page-container-padding" style="text-align:center;">
+            {{trackingtips}}
+        </view>
+    </view>
+    <view class="obody page-container-padding">
+        <view class="kdinfo" wx:if="{{trackingstate!=-1}}">
+            <view>
+                <image src="/images/kuaidi.png"></image>
+                <view>
+                    {{orderinfo.express}}:{{orderinfo.trackingno}}
+                </view>
+            </view>
+            <view>
+                <navigator hoverClass="navigator-hover" url="/pages/order/expressinfo">
+                    <button class="mvbutton">查询</button>
+                </navigator>
+            </view>
+        </view>
+        <view class="deliveryinfo">
+            <view>
+                <image src="/images/weizhi.png"></image>
+            </view>
+            <view>
+                <view>收货人:{{orderinfo.name}} {{orderinfo.mobile}}</view>
+                <view>{{orderinfo.province}}{{orderinfo.city}}{{orderinfo.district}}{{orderinfo.address}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="odetail page-container-padding">
+        <view bindtap="godetail">
+            <view>
+                <image src="{{orderinfo.gimgurl}}"></image>
+            </view>
+            <view>{{orderinfo.gname}}</view>
+        </view>
+        <view>
+            <view>
+                <view>
+                    支付成长币:
+                </view>
+                <view>
+                    {{orderinfo.point}}
+                </view>
+            </view>
+            <view bindtap="Clipboard" data-orderno=" {{orderinfo.orderno}}">
+                <view>
+                    订单编号:
+                </view>
+                <view>
+                    {{orderinfo.orderno}}
+                </view>
+            </view>
+            <view>
+                <view>
+                    下单时间:
+                </view>
+                <view>
+                    {{orderinfo.paytime}}
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

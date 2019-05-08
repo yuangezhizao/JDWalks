@@ -1,0 +1,9 @@
+<view wx:for="{{steplist}}" wx:key="item">
+    <view class="steps stepheader" wx:if="{{index==0||item.month!=steplist[index-1]['month']}}">
+        <view class="date">{{item.curMounth}}</view>
+    </view>
+    <view class="steps">
+        <view class="date">{{item.recorddate}}</view>
+        <view class="step">{{item.steps}}</view>
+    </view>
+</view>

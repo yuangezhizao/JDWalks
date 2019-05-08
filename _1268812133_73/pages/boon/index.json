@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "新人福利",
+    "usingComponents": {
+        "task-list": "/components/taskList/taskList",
+        "goods-list": "/components/goodsList/goodsList"
+    }
+}

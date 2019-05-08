@@ -1,0 +1,48 @@
+<view style="position:relative;margin-bottom:30rpx;">
+    <view class="header">
+        <swiper autoplay="true" circular="true" indicatorActiveColor="#F15A24" indicatorColor="rgba(241,90,36,.3)" indicatorDots="true">
+            <swiper-item wx:for="{{detail.imgurl}}" wx:key="idx">
+                <image bindtap="previewimage" class="slide-image" mode="aspectFill" src="{{item}}"></image>
+            </swiper-item>
+        </swiper>
+    </view>
+    <view class="body page-container-margin shadow">
+        <view class="middle">
+            <view style="width:500rpx;white-space: nowrap;overflow: hidden; text-overflow: ellipsis;">
+                <text>{{detail.name}}</text>
+            </view>
+            <view bindtap="like" class="like" wx:if="{{detail.islike==1}}">
+                <image src="../../images/likea@3x.png"></image>
+                <text style="color:#F15A24;"> 已收藏</text>
+            </view>
+            <view bindtap="like" class="like" wx:else>
+                <image src="../../images/like@3x.png"></image>
+                <text>收藏</text>
+            </view>
+        </view>
+        <view class="price">
+            <view>
+                <image src="/images/nb@2x.png"></image>
+                <view wx:if="{{detail.type==1}}">
+                    <block wx:if="{{detail.state==0||detail.state==1}}">
+                        {{detail.bottomprice}}
+                        <text class="currentprice">拍卖底价</text>
+                    </block>
+                    <block wx:else>
+                        {{detail.auction.auction_price}}
+                        <text class="currentprice" wx:if="{{detail.state==2}}">领先出价</text>
+                        <text class="currentprice" wx:if="{{detail.state==3}}">中标价</text>
+                    </block>
+                </view>
+                <view wx:else>
+                    {{detail.sellingpoints}}
+                    <text class="school_price" wx:if="{{detail.dpoint*1>0}}">学生价{{detail.sellingpoints*1-detail.dpoint*1}}</text>
+                </view>
+            </view>
+            <view wx:if="{{detail.stock!=-1}}">
+                <text style="font-size:12px;color:#AAAAAA;" wx:if="{{detail.stock>0}}">剩余数量:{{detail.stock}}</text>
+                <text style="font-size:12px;color:#AAAAAA;" wx:else>暂无库存</text>
+            </view>
+        </view>
+    </view>
+</view>

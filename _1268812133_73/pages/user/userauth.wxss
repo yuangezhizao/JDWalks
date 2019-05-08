@@ -1,0 +1,26 @@
+.container view {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container view image:nth-child(1) {
+    width: 240rpx;
+}
+
+.container view:nth-child(1) image:nth-child(2) {
+    width: 640rpx;
+    height: 182rpx;
+}
+
+.container view view:last-child {
+    height: 182rpx;
+    width: 500rpx;
+    position: relative;
+    top: -130rpx;
+    font-size: 28rpx;
+}
+
+.footer {
+    box-shadow: none;
+}

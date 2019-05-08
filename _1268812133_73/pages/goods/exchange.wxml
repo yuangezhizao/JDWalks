@@ -1,0 +1,140 @@
+<import src="../../templates/common/head.wxml"></import>
+<import src="../../templates/common/foot.wxml"></import>
+<template is="head" data></template>
+<view>
+    <detail-header detail="{{detail}}" pageContainerMargin="page-container-margin" shadow="shadow"></detail-header>
+    <view class="auctionhelp shadow" wx:if="{{detail.invitednumber*1>0}}">
+        <view class="assistance page-container-padding" wx:if="{{detail.stock>0&&detail.state*1<2}}">
+            <view wx:if="{{detail.invitednumber*1<detail.gidhelps.length||detail.invitednumber*1==detail.gidhelps.length}}">邀请成功</view>
+            <view wx:else>还差<text style="color:#F15A24;font-weight:bold;">{{detail.invitednumber*1-detail.gidhelps.length}}</text>人即可兑换</view>
+        </view>
+        <view class="assistance page-container-padding" wx:else>
+            <view>邀请结束</view>
+        </view>
+        <view class="assistanceuser">
+            <view wx:if="{{detail.invitednumber*1<=8}}">
+                <view wx:for="{{detail.invitednumber*1}}" wx:key="idx">
+                    <image class="avatar" src="{{detail.gidhelps[index]['avatarurl']}}" wx:if="{{detail.gidhelps[index]['avatarurl']}}"></image>
+                    <image class="avatar" src="/images/waithelp.png" wx:else></image>
+                </view>
+            </view>
+            <view wx:else>
+                <view wx:for="{{detail.invitednumber*1}}" wx:key="idx">
+                    <block wx:if="{{index==7}}">
+                        <block wx:if="{{inviteopen}}">
+                            <image class="avatar" src="{{detail.gidhelps[index]['avatarurl']}}" wx:if="{{detail.gidhelps[index]['avatarurl']}}"></image>
+                            <image class="avatar" src="/images/waithelp.png" wx:else></image>
+                        </block>
+                        <image bindtap="toggleinvite" class="avatar" src="/images/open.png" wx:else></image>
+                    </block>
+                    <block wx:elif="{{index<7}}">
+                        <image class="avatar" src="{{detail.gidhelps[index]['avatarurl']}}" wx:if="{{detail.gidhelps[index]['avatarurl']}}"></image>
+                        <image class="avatar" src="/images/waithelp.png" wx:else></image>
+                    </block>
+                    <block wx:else>
+                        <block wx:if="{{inviteopen}}">
+                            <image class="avatar" src="{{detail.gidhelps[index]['avatarurl']}}" wx:if="{{detail.gidhelps[index]['avatarurl']}}"></image>
+                            <image class="avatar" src="/images/waithelp.png" wx:else></image>
+                            <image bindtap="toggleinvite" class="avatar" src="/images/cutout.png" wx:if="{{index==detail.invitednumber-1}}"></image>
+                        </block>
+                        <block wx:else>
+                            <image class="avatar over" src="{{detail.gidhelps[index]['avatarurl']}}" wx:if="{{detail.gidhelps[index]['avatarurl']}}"></image>
+                            <image class="avatar over" src="/images/waithelp.png" wx:else></image>
+                        </block>
+                    </block>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="ad shadow" style="margin-bottom:30rpx;" wx:if="{{bannerList.length}}">
+        <banner-list bannerList="{{bannerList}}" shadow="shadow"></banner-list>
+    </view>
+    <detail-tab class="detail" detail="{{detail.intro}}" rule="{{ruleImg}}" shadow="shadow"></detail-tab>
+    <view style="height:30rpx;"></view>
+    <view class="footer" wx:if="{{!detail.showjdauth}}">
+        <button class="mvbutton" data-type="invite" disabled="{{detail.disabled}}" openType="share" wx:if="{{detail.needinvite}}">{{tips}}
+        </button>
+        <button bindtap="gojdauth" class="mvbutton" disabled="{{detail.disabled}}" wx:elif="{{detail.justshowjdauth}}">{{tips}}
+        </button>
+        <button bindtap="handleInventoryPopup" class="mvbutton" disabled="{{detail.disabled}}" wx:else>{{tips}}
+        </button>
+    </view>
+    <view class="footer newfooter page-container-padding" wx:if="{{detail.showjdauth}}">
+        <button bindtap="gojdauth" class="mvbutton">
+            认证学生享学生价
+        </button>
+        <view class="btnmiddle"></view>
+        <button bindtap="handleInventoryPopup" class="mvbutton" disabled="{{detail.disabled}}">{{tips}}
+        </button>
+    </view>
+    <zan-popup show="{{showpopup}}">
+        <view class="help">
+            <view bindtap="togglepopup" class="close">
+                <image src="../../images/close.png"></image>
+            </view>
+            <image src="{{detail.imgurl[0]}}"></image>
+            <view wx:if="{{type==1}}">拍卖需支付{{coinname}}</view>
+            <view wx:else>兑换需支付</view>
+            <view class="value" wx:if="{{detail.usestuprice}}">
+                <image src="/images/nb@2x.png"></image>
+                {{(detail.sellingpoints*1-detail.dpoint*1)*stepper.stepper}}
+
+            </view>
+            <view class="value" wx:else>
+                <image src="/images/nb@2x.png"></image>
+                {{detail.sellingpoints*stepper.stepper}}
+            </view>
+            <view class="my">我的{{coinname}}</view>
+            <view class="value">
+                <image src="/images/nb@2x.png"></image>
+                {{mypoints}}
+            </view>
+            <view>
+                <button class="mvbutton" openType="share">成长币不足,邀请好友获取</button>
+            </view>
+        </view>
+    </zan-popup>
+    <zan-popup show="{{showinventorypopup}}" type="bottom">
+        <view class="inventory">
+            <view>
+                <view>
+                    <image src="{{detail.imgurl[0]}}"></image>
+                </view>
+                <view>
+                    <text>
+                        <block wx:if="{{detail.usestuprice}}">{{detail.sellingpoints*1-detail.dpoint*1}}</block>
+                        <block wx:else>{{detail.sellingpoints}}</block>{{coinname}}
+                    </text>
+                    <text>我的{{coinname}}:{{mypoints}}</text>
+                    <text>库存:{{stock}}</text>
+                </view>
+                <view bindtap="handleInventoryPopup">
+                    <image src="../../images/close.png"></image>
+                </view>
+            </view>
+            <view>
+                <view>
+                    请选择规格:
+                </view>
+                <view>
+                    <view bindtap="handleInventory" class="radio {{selectinventory==item.id?'activeradio':''}}" data-id="{{item.id}}" data-limit="{{item.limit}}" data-stock="{{item.stock}}" wx:for="{{detail.inventory}}" wx:key="idx">
+                        {{item.property}}
+                    </view>
+                </view>
+            </view>
+            <view>
+                <view>
+                    兑换数量:
+                </view>
+                <zan-stepper bind:change="handleZanStepperChange" max="{{stepper.max}}" min="{{stepper.min}}" stepper="{{stepper.stepper}}"></zan-stepper>
+            </view>
+            <view>
+                <button bindtap="buy" class="mvbutton">
+                    立即兑换
+                </button>
+            </view>
+        </view>
+    </zan-popup>
+</view>
+<import src="../../templates/wxParse/wxParse.wxml"></import>
+<template is="foot" data></template>

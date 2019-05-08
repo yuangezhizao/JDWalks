@@ -1,0 +1,19 @@
+<view class="ad shadow" wx:if="{{bannerList.length>0}}">
+    <banner-list noradius bannerList="{{bannerList}}"></banner-list>
+</view>
+<view class="weui-tab shadow">
+    <view class="weui-navbar">
+        <view bindtap="tabClick" class="weui-navbar__item {{activeIndex==index?'weui-bar__item_on':''}}" id="{{index}}" wx:for="{{tabs}}" wx:key="*this">
+            <view class="weui-navbar__title">{{item}}</view>
+        </view>
+    </view>
+    <view class="weui-tab__panel">
+        <view class="weui-tab__content" hidden="{{activeIndex!=0}}">
+            <rich-text nodes="{{detail}}"></rich-text>
+        </view>
+        <view class="weui-tab__content" hidden="{{activeIndex!=1}}">
+            <image mode="widthFix" src="{{rule}}" style="width:100%;"></image>
+        </view>
+    </view>
+</view>
+<view style="height:130rpx;"></view>

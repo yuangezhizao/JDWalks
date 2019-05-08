@@ -1,0 +1,12 @@
+<import src="../../templates/common/head.wxml"></import>
+<import src="../../templates/common/foot.wxml"></import>
+<template is="head" data></template>
+<template is="goodsori" data="{{...item,coinname:coinname}}" wx:for="{{auctionList}}" wx:key="idx"></template>
+<view class="weui-loadmore weui-loadmore_line" hidden="{{havenext}}">
+    <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无更多记录</view>
+</view>
+<view class="nodata" wx:if="{{auctionList.length==0&&ready}}">
+    <image src="../../images/nodata@3x.png"></image>
+</view>
+<import src="../../templates/goodsoriauction.wxml"></import>
+<template is="foot" data></template>

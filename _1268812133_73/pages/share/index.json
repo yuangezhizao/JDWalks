@@ -1,0 +1,8 @@
+{
+    "navigationBarTitleText": "成长日记",
+    "backgroundColor": "#F2F2F4",
+    "usingComponents": {
+        "banner-list": "/components/bannerList/bannerList",
+        "cropper": "/components/wxCropper/wxCropper"
+    }
+}

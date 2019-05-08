@@ -1,0 +1,36 @@
+<import src="../../templates/common/head.wxml"></import>
+<import src="../../templates/common/foot.wxml"></import>
+<template is="head" data></template>
+<view wx:if="{{oneJackDetail}}">
+    <view class="header">
+        <image mode="widthFix" src="{{oneJackDetail.img_url}}"></image>
+        <view class="title shadow">
+            <view>
+                <view class="jtitle">奖品{{oneJackDetail.title}}</view>
+                <view>{{oneJackDetail.drawtimeshow}}</view>
+            </view>
+            <view hidden="{{oneJackDetail.attendnum*1==0}}">
+                已有{{oneJackDetail.attendnum}}人参与
+            </view>
+        </view>
+    </view>
+    <view class="body page-container-margin shadow">
+        <view class="drawinfo">
+            <form reportSubmit bindsubmit="{{oneJackDetail.attendonejack?'attenDoneJack':''}}">
+                <button class="iconbutton" formType="submit">
+                    <image class="detailstateimg" src="{{oneJackDetail.detailstateimg}}"></image>
+                </button>
+            </form>
+            <view bindtap="{{oneJackDetail.bindtap}}">
+                <rich-text nodes="{{oneJackDetail.detaildrawtips}}"></rich-text>
+            </view>
+        </view>
+        <view class="description">
+            <view class="ad" wx:if="{{bannerList.length>0}}">
+                <banner-list noradius bannerList="{{bannerList}}"></banner-list>
+            </view>
+            <rich-text nodes="{{oneJackDetail.description}}"></rich-text>
+        </view>
+    </view>
+</view>
+<template is="foot" data></template>

@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "我的成长币",
+    "enablePullDownRefresh": false,
+    "usingComponents": {
+        "com-month": "../../components/commonthlist/commonthlist"
+    }
+}

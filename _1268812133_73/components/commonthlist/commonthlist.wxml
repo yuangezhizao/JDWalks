@@ -1,0 +1,23 @@
+<view style="background-color:#fff;">
+    <block wx:for="{{showlist}}" wx:key="idx">
+        <view class="pointsheader page-container-padding" wx:if="{{index==0||item.month!=showlist[index-1]['month']}}">
+            <view>{{item.curMounth}}</view>
+            <view></view>
+        </view>
+        <view class="points page-container-margin">
+            <view>
+                <view>
+                    <image src="{{item.fromuavatar}}"></image>
+                </view>
+                <view>
+                    <view>{{item.description}}</view>
+                    <view>{{item.recorddate}}</view>
+                </view>
+            </view>
+            <view style="{{item.value<0?'color:#0B9851;':''}}">
+                <text wx:if="{{item.value>0}}">+</text>
+                {{item.value}}
+            </view>
+        </view>
+    </block>
+</view>

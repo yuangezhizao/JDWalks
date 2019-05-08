@@ -1,0 +1,15 @@
+<import src="../../templates/common/head.wxml"></import>
+<template is="head" data></template>
+<view class="header">
+    <view class="item infos">
+        <view class="nickname">{{userInfo.nickname}}</view>
+        <view class="desc">累计步数:{{sumsteps}}</view>
+    </view>
+    <view class="item">
+        <image src="{{userInfo.avatarurl}}"></image>
+    </view>
+</view>
+<step-list steplist="{{steplist}}"></step-list>
+<view class="weui-loadmore weui-loadmore_line" hidden="{{havenext}}">
+    <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无更多记录</view>
+</view>

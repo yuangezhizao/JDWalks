@@ -1,0 +1,20 @@
+<view class="page-container-margin activity">
+    <block wx:if="{{jackList.length>0}}">
+        <view bindtap="gojackdetail" class="jack" data-jack="{{item}}" wx:for="{{jackList}}" wx:key="idx">
+            <image class="jackimg" data-item="{{item}}" lazyLoad="true" src="{{item.thumb}}"></image>
+            <view>
+                <view>
+                    <view>奖品:{{item.title}}</view>
+                    <view class="date">{{item.drawtimeshow}}</view>
+                </view>
+                <view>
+                    <button class="mvbutton {{item.classname}}">{{item.btntips}}</button>
+                </view>
+            </view>
+            <image class="timestateimg" src="{{item.timestateimg}}"></image>
+        </view>
+    </block>
+    <view class="weui-loadmore weui-loadmore_line" wx:else>
+        <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无数据</view>
+    </view>
+</view>

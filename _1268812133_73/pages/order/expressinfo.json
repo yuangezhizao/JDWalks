@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "物流详情",
+    "usingComponents": {
+        "van-steps": "../../components/zanui/steps/index"
+    }
+}

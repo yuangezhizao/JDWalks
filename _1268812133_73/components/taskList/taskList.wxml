@@ -1,0 +1,13 @@
+<view class="tasklist page-container-padding shadow" wx:for="{{taskList}}" wx:key="idx">
+    <view data-id="{{item.id}}">
+        <view>{{item.tname}}</view>
+        <view>
+            <image class="czb" src="/images/nb@2x.png"></image>
+            <text>{{item.value}}成长币</text>
+        </view>
+    </view>
+    <view>
+        <button class="mvbutton {{item.button.class}}" data-item="{{item}}" disabled="{{item.button.disabled}}" openType="share" style="height:48rpx;font-size:24rpx;width:124rpx;" wx:if="{{item.type*1==6}}">{{item.button.text}}</button>
+        <button bindtap="handleTask" class="mvbutton {{item.button.class}}" data-item="{{item}}" disabled="{{item.button.disabled}}" style="height:48rpx;font-size:24rpx;width:124rpx;" wx:else>{{item.button.text}}</button>
+    </view>
+</view>

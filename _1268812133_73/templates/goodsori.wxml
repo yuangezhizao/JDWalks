@@ -1,0 +1,27 @@
+<template name="goodsori">
+    <navigator hoverClass="navigator-hover" url="/pages/order/index?orderid={{id}}&type=2">
+        <view class="goodsori page-container-padding">
+            <view>
+                <view>{{paytime}}</view>
+                <view>{{statename}}</view>
+            </view>
+            <view>
+                <view>
+                    <image mode="aspectFill" src="{{orderDetail[0].gpimgurl}}"></image>
+                </view>
+                <view>
+                    <view>
+                        <view>{{orderDetail[0].gname}}</view>
+                    </view>
+                    <view class="pointamount">
+                        <view>
+                            <image src="/images/nb@2x.png"></image>
+                            <view>{{point}}</view>
+                        </view>
+                        <view>× {{orderDetail[0].amount}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </navigator>
+</template>

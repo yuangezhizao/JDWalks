@@ -1,0 +1,12 @@
+<import src="../../templates/common/head.wxml"></import>
+<template is="head" data></template>
+<import src="../../templates/address.wxml"></import>
+<view class="page-container-padding" style="margin-bottom:130rpx;">
+    <template is="address" data="{{...item,fromorder:fromorder,selectid:selectid}}" wx:for="{{addressList}}" wx:key="idx"></template>
+    <view class="nodata" wx:if="{{addressList.length==0&&ready}}">
+        <image src="../../images/nodata@3x.png"></image>
+    </view>
+    <view class="footer">
+        <button bindtap="addaddress" class="weui-btn mvbutton">增加地址</button>
+    </view>
+</view>

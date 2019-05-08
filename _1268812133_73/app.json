@@ -1,0 +1,84 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/mall/index",
+        "pages/user/index",
+        "pages/user/userauth",
+        "pages/user/noevent",
+        "pages/goods/index",
+        "pages/goods/seckill",
+        "pages/goods/exchange",
+        "pages/goods/category/index",
+        "pages/step/step",
+        "pages/point/point",
+        "pages/address/index",
+        "pages/address/form",
+        "pages/exchange/index",
+        "pages/mycard/index",
+        "pages/auction/index",
+        "pages/collect/index",
+        "pages/orderconfirm/index",
+        "pages/auctionconfirm/index",
+        "pages/sponsor/index",
+        "pages/sponsorrecord/index",
+        "pages/rule/index",
+        "pages/webview/index",
+        "pages/share/index",
+        "pages/order/index",
+        "pages/order/expressinfo",
+        "pages/friends/friends",
+        "pages/run/run",
+        "pages/user/jdauth",
+        "pages/myluckdraw/index",
+        "pages/myluckdraw/detail",
+        "pages/activity/index",
+        "pages/activity/onejacklist",
+        "pages/activity/onejackdetail",
+        "pages/boon/index"
+    ],
+    "window": {
+        "backgroundTextStyle": "dark",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "color": "#999999",
+        "selectedColor": "#F15A24",
+        "backgroundColor": "#ffffff",
+        "borderStyle": "black",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "首页",
+                "iconPath": "images/index@3x.png",
+                "selectedIconPath": "images/indexa@3x.png"
+            },
+            {
+                "pagePath": "pages/activity/index",
+                "text": "活动",
+                "iconPath": "images/activity.png",
+                "selectedIconPath": "images/activitya.png"
+            },
+            {
+                "pagePath": "pages/user/index",
+                "text": "我的",
+                "iconPath": "images/my@3x.png",
+                "selectedIconPath": "images/mya@3x.png"
+            }
+        ]
+    },
+    "networkTimeout": {
+        "request": 10000,
+        "downloadFile": 10000
+    },
+    "navigateToMiniProgramAppIdList": [
+        "wx256438e520526a0e",
+        "wx7fa8c1a691511541",
+        "wx91d27dbf599dff74",
+        "wx315101fcb033908c",
+        "wx5048ec7260c49991",
+        "wxccb5c536b0ecd1bf",
+        "wx408ea534cb79567e"
+    ],
+    "debug": true
+}

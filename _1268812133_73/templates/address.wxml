@@ -1,0 +1,29 @@
+<template name="address">
+    <view class="address" hoverClass="activeview">
+        <view bindtap="selectaddress" data-id="{{id}}" style="flex:1;" wx:if="{{fromorder}}">
+            <image src="../../images/selecta.png" wx:if="{{selectid==id}}"></image>
+            <image src="../../images/select.png" wx:else></image>
+        </view>
+        <view wx:else></view>
+        <view>
+            <view>
+                <text>{{name}}</text>
+                <view>{{mobile}}
+                    <text style="color:#F15A24;" wx:if="{{isdefault==1}}">默认</text>
+                </view>
+            </view>
+            <view>
+                <text>{{province}}</text>
+                <text>{{city}}</text>
+                <text>{{district}}</text>
+                <text wx:if="{{town}}">{{town}}</text>
+            </view>
+            <view>
+                {{address}}
+            </view>
+        </view>
+        <view bindtap="editaddress" data-id="{{id}}">
+            <image src="../../images/edit.png"></image>
+        </view>
+    </view>
+</template>

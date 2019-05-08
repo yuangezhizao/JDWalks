@@ -1,0 +1,20 @@
+#foot {
+    width: 90rpx;
+    height: 90rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #999;
+    height: 90rpx;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 30rpx;
+    right: 30rpx;
+    z-index: 501;
+    box-shadow: 2px 2px 5px #333333;
+}
+
+#foot image {
+    width: 55%;
+    height: 55%;
+}

@@ -1,0 +1,7 @@
+view {
+    height: 100%;
+}
+
+view image {
+    height: 100%;
+}

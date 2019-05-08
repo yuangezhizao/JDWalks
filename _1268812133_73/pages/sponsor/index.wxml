@@ -1,0 +1,30 @@
+<import src="../../templates/common/head.wxml"></import>
+<import src="../../templates/common/foot.wxml"></import>
+<import src="../../templates/goodscol1/goods.wxml"></import>
+<template is="head" data></template>
+<view class="page-container-padding body" wx:if="{{goodsid!=''}}">
+    <view class="sponsor">
+        <view>
+            <view>
+               你的好友<text style="color:#F15A24;font-size:40rpx;padding:5rpx;">{{fromuserinfo.nickname}}</text>正在参与竞拍
+           </view>
+            <view>
+               邀你来助力
+           </view>
+        </view>
+        <view>
+            <template is="goodscol1" data="{{...goodsInfo}}"></template>
+        </view>
+        <view>
+            <button bindtap="bindsponsor" class="mvbutton">立即助力</button>
+            <view>
+               助力好友不影响自己的成长币,每天只能助力一次
+           </view>
+        </view>
+    </view>
+</view>
+<view class="weui-loadmore" wx:else>
+    <view class="weui-loading"></view>
+    <view class="weui-loadmore__tips">跳转中...</view>
+</view>
+<template is="foot" data></template>

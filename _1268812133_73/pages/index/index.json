@@ -1,0 +1,15 @@
+{
+    "navigationBarBackgroundColor": "#F15B24",
+    "backgroundColor": "#F15B24",
+    "navigationBarTextStyle": "white",
+    "backgroundTextStyle": "light",
+    "navigationBarTitleText": "奔跑吧少东家",
+    "enablePullDownRefresh": true,
+    "usingComponents": {
+        "zan-popup": "../../components/zanui/popup/index",
+        "vantNoticebar": "/components/notice-bar/index",
+        "banner-list": "/components/bannerList/bannerList",
+        "goods-list": "/components/goodsList/goodsList",
+        "invitation": "/components/invitation/invitation"
+    }
+}

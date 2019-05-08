@@ -1,0 +1,19 @@
+<view class="container" style="padding:100rpx 0;">
+    <view>
+        <image mode="widthFix" src="../../images/logo@3x.png"></image>
+        <image src="../../images/logintips.png"></image>
+        <view>
+            当前应用需要获取您的用户信息、地理位置、运动步数等权限后方可使用
+        </view>
+    </view>
+    <form reportSubmit bindsubmit="handleLogin">
+        <view>
+            <view class="footer" style="position:static">
+                <button bindgetuserinfo="userInfo" class="mvbutton" disabled="{{disabledlogin}}" formType="submit" loading="{{showbtnloading}}" openType="getUserInfo" type=""> 授权并登录
+                </button>
+            </view>
+            <navigator hoverClass="navigator-hover" style="font-size:20rpx;" url="/pages/user/noevent">点击登录无反应
+            </navigator>
+        </view>
+    </form>
+</view>

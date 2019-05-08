@@ -1,0 +1,82 @@
+.mallx {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.mallxbody {
+    width: 200rpx;
+    display: flex;
+    flex-direction: column;
+    margin-right: 20rpx;
+}
+
+.mallxbody>view:nth-child(1) image:nth-child(1) {
+    width: 200rpx;
+    height: 200rpx;
+    border: 1rpx solid #EFEFEF;
+    border-radius: 10rpx;
+}
+
+.mallxbody>view:nth-child(1) {
+    height: 200rpx;
+    position: relative;
+}
+
+.mallxbody>view:nth-child(1) image:nth-child(2) {
+    width: 104rpx;
+    height: 48rpx;
+    position: absolute;
+    top: 10rpx;
+    left: 106rpx;
+}
+
+.mallx .cardbody {
+    height: 50rpx!important;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.mallx .cardbody>view:nth-child(1) {
+    display: flex;
+}
+
+.mallx .cardbody>view:nth-child(1) text {
+    align-self: flex-end;
+}
+
+.mallx .cardbody>view:not(:nth-child(1)) {
+    font-size: 19rpx;
+    border-radius: 4rpx;
+    margin-right: 4rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: left;
+    color: #F15A24;
+    border: 1rpx solid #F15A24;
+    padding-left: 5rpx;
+    padding-right: 5rpx;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.priceinfomore {
+    display: flex;
+    height: 40rpx;
+    align-items: center;
+}
+
+.priceinfomore>view:nth-child(2) {
+    font-size: 28rpx!important;
+    color: #F15A24!important;
+}
+
+.priceinfomore image {
+    width: 24rpx;
+    height: 24rpx;
+    margin-right: 5rpx;
+}

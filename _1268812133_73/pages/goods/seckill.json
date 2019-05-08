@@ -1,0 +1,8 @@
+{
+    "navigationBarTitleText": "物品详情",
+    "usingComponents": {
+        "zan-popup": "../../components/zanui/popup/index",
+        "zan-stepper": "../../components/zanui/stepper/index"
+    },
+    "enablePullDownRefresh": true
+}

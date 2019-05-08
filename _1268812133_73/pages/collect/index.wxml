@@ -1,0 +1,27 @@
+<import src="../../templates/common/head.wxml"></import>
+<template is="head" data></template>
+<view bindtap="godetail" class="goodsori page-container-padding" data-goodsid="{{item.gid}}" data-type="{{item.type}}" wx:for="{{collectList}}" wx:key="idx">
+    <view></view>
+    <view>
+        <view>
+            <image mode="aspectFill" src="{{item.imgurl[0]}}"></image>
+        </view>
+        <view>
+            <view>
+                <view>{{item.name}}</view>
+            </view>
+            <view class="pointamount">
+                <view>
+                    <image src="/images/nb@2x.png"></image>
+                    <view>{{item.sellingpoints}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="nodata" wx:if="{{collectList.length==0&&ready}}">
+    <image src="../../images/nodata@3x.png"></image>
+</view>
+<view class="weui-loadmore weui-loadmore_line" hidden="{{havenext}}">
+    <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无更多记录</view>
+</view>

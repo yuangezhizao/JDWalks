@@ -1,0 +1,67 @@
+<view class="order">
+    <block wx:if="{{orderinfo.type==1}}">
+        <view class="oheader">
+            <image src="/images/kuaidi.png"></image>
+            <view class="page-container-padding" style="text-align:center;">
+                {{trackingtips}}
+            </view>
+        </view>
+        <view class="obody page-container-padding">
+            <view class="kdinfo" wx:if="{{trackingstate!=-1}}">
+                <view>
+                    <image src="/images/kuaidi.png"></image>
+                    <view>
+                        {{orderinfo.express}}:{{orderinfo.trackingno}}
+                    </view>
+                </view>
+                <view>
+                    <navigator hoverClass="navigator-hover" url="/pages/order/expressinfo">
+                        <button class="mvbutton">查询</button>
+                    </navigator>
+                </view>
+            </view>
+            <view class="deliveryinfo">
+                <view>
+                    <image src="/images/weizhi.png"></image>
+                </view>
+                <view>
+                    <view>收货人:{{orderinfo.name}} {{orderinfo.mobile}}</view>
+                    <view>{{orderinfo.city}}{{orderinfo.district}}{{orderinfo.address}}</view>
+                </view>
+            </view>
+        </view>
+    </block>
+    <view class="odetail page-container-padding">
+        <view bindtap="godetail">
+            <view>
+                <image src="{{orderinfo.jimgurl}}"></image>
+            </view>
+            <view>{{orderinfo.jname}}</view>
+        </view>
+        <view>
+            <view>
+                <view>
+                    中奖编号:
+                </view>
+                <view>
+                    {{orderinfo.orderno}}
+                </view>
+            </view>
+            <view>
+                <view>
+                    中奖时间:
+                </view>
+                <view>
+                    {{orderinfo.create_time}}
+                </view>
+            </view>
+            <view bindtap="Clipboard" data-index="{{index}}" data-item="{{item}}" wx:if="{{orderinfo.exinfo}}" wx:for="{{orderinfo.exinfo}}" wx:key="idx">
+                <view>{{index}}:</view>
+                <view>{{item}}
+                    <text style="font-size:20rpx;color:#999999;">复制</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <rich-text nodes="{{orderinfo.description}}"></rich-text>
+</view>

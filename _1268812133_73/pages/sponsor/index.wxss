@@ -1,0 +1,78 @@
+@import "../../templates/goodscol1/goods.wxss";
+
+page {
+    background-color: #F3F3F5;
+}
+
+.coinname1 {
+    height: 32rpx;
+    background-size: 30rpx 30rpx;
+    background-position: 0;
+    padding-left: 35rpx;
+    font-size: 36rpx;
+    font-family: MoveClubFont;
+    color: #F15A24;
+    padding-right: 10rpx;
+}
+
+.body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 32rpx;
+}
+
+.sponsor {
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 16rpx;
+    background-color: #ffffff;
+}
+
+.sponsor>view:nth-child(1) {
+    height: 168rpx;
+    display: flex;
+    flex-direction: column;
+    line-height: 60rpx;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1rpx solid #EBEBEB;
+    padding: 30rpx;
+    font-size: 36rpx;
+}
+
+.sponsor view:nth-child(1)>view:nth-child(1) {
+    flex-direction: row;
+}
+
+.sponsor>view:nth-child(2) {
+    padding: 0 30rpx 30rpx 30rpx;
+}
+
+.sponsor>view:nth-child(3) {
+    display: flex;
+    flex-direction: column;
+    height: 120rpx;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 30rpx 30rpx 30rpx;
+    font-size: 24rpx;
+    color: #999999;
+}
+
+.sponsor>view:nth-child(3) button {
+    width: 100%;
+    margin-bottom: 10rpx;
+}
+
+#foot {
+    top: 30rpx;
+    width: 80rpx;
+    height: 80rpx;
+}
+
+.mallcol1 .cardbody>view:nth-child(1)>view:nth-child(1) {
+    font-size: 32rpx;
+    width: 420rpx;
+}

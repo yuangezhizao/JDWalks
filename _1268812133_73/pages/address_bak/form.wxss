@@ -1,0 +1,13 @@
+@import "../../__wuBaseWxss__/8.wxss";
+
+.footeredit .mvbutton {
+    width: 310rpx;
+}
+
+.footeredit .mvbutton:nth-child(1) {
+}
+
+.weui-select {
+    overflow: hidden;
+    white-space: nowrap;
+}

@@ -1,0 +1,86 @@
+<import src="../../templates/common/head.wxml"></import>
+<template is="head" data></template>
+<form reportSubmit bindreset="formReset" bindsubmit="formSubmit" wx:if="{{regionList.length>0}}">
+    <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{errortips}}</view>
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input {{warn.name?'weui-cell_warn':''}}">
+            <view class="">
+                <view class="weui-label">收货人</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input bindblur="checkdata" class="weui-input" data-field="name" name="name" placeholder="请输入收货人姓名" value="{{addressInfo.name}}"></input>
+            </view>
+            <view class="weui-cell__ft" wx:if="{{warn.name}}">
+                <icon color="#E64340" size="23" type="warn"></icon>
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_input {{warn.mobile?'weui-cell_warn':''}}">
+            <view class="weui-cell__hd">
+                <view class="weui-label">手机号码</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input bindblur="checkdata" class="weui-input" data-field="mobile" name="mobile" placeholder="请输入手机号码" type="number" value="{{addressInfo.mobile}}"></input>
+            </view>
+            <view class="weui-cell__ft" wx:if="{{warn.mobile}}">
+                <icon color="#E64340" size="23" type="warn"></icon>
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_select">
+            <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                <view class="weui-label">所在地区</view>
+            </view>
+            <view class="weui-cell__bd">
+                <picker bindchange="bindRegionChange" bindcolumnchange="bindRegionColumnChange" disabled="{{regionDisabled}}" mode="multiSelector" name="region" range="{{regionList}}" rangeKey="name" value="{{regionkey}}">
+                    <view class="weui-select weui-select_in-select-after">
+                        {{regionList[0][ regionkey[0] ].name}} {{regionList[1][ regionkey[1] ].name}} {{regionList[2][ regionkey[2] ].name}}
+                    </view>
+                </picker>
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_select" wx:if="{{townList.length>0}}">
+            <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                <view class="weui-label">乡镇</view>
+            </view>
+            <view class="weui-cell__bd">
+                <picker bindchange="bindTownChange" name="town" range="{{townList}}" rangeKey="name" value="{{town}}">
+                    <view class="weui-select weui-select_in-select-after">
+                        {{townList[town].name}}
+                    </view>
+                </picker>
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_input {{warn.address?'weui-cell_warn':''}}">
+            <view class="">
+                <view class="weui-label">详细地址</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input bindblur="checkdata" class="weui-input" data-field="address" name="address" placeholder="详细地址" value="{{addressInfo.address}}"></input>
+            </view>
+            <view class="weui-cell__ft" wx:if="{{warn.address}}">
+                <icon color="#E64340" size="23" type="warn"></icon>
+            </view>
+        </view>
+    </view>
+    <view class="hr"></view>
+    <view class="weui-cells  weui-cells_after-title">
+        <view class="weui-cell weui-cell_switch">
+            <view class="weui-cell__bd">设为默认地址</view>
+            <view class="weui-cell__ft">
+                <switch checked="{{addressInfo.isdefault==1}}" name="isdefault"></switch>
+            </view>
+        </view>
+    </view>
+    <view class="footer footeredit" wx:if="{{addressid}}">
+        <button bindtap="deleteaddress" class="weui-btn mvbutton">删除</button>
+        <button class="weui-btn mvbutton" formType="submit">提交修改</button>
+    </view>
+    <view class="footer" wx:else>
+        <button class="weui-btn mvbutton" formType="submit">保存</button>
+    </view>
+</form>
+<view wx:else>
+    <view class="weui-loadmore">
+        <view class="weui-loading"></view>
+        <view class="weui-loadmore__tips">正在加载</view>
+    </view>
+</view>

@@ -1,0 +1,8 @@
+<view class="page-container-margin activity">
+    <block wx:if="{{activityList.length>0}}">
+        <image bindtap="godetail" data-item="{{item}}" lazyLoad="true" src="{{item.images}}" wx:for="{{activityList}}" wx:key="idx"></image>
+    </block>
+    <view class="weui-loadmore weui-loadmore_line" wx:else>
+        <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无数据</view>
+    </view>
+</view>

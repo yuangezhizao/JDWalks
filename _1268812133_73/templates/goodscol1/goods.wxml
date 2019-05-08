@@ -1,0 +1,41 @@
+<template name="goodscol1">
+    <view bindtap="godetail" class="mallcol1" data-id="{{id}}" data-type="{{type}}" hoverClass="activeview">
+        <view>
+            <image mode="aspectFill" src="{{imgurl[0]}}"></image>
+            <image src="/images/gstate{{gstate}}@2x.png" wx:if="{{type==1&&sponsor!=1}}"></image>
+        </view>
+        <view class="cardbody">
+            <view>
+                <view>
+                    {{name}}
+                </view>
+                <view wx:if="{{sponsor!=1}}">
+                    {{subtitle}}
+                    <view wx:for="{{tags}}" wx:key="tidx">{{item}}</view>
+                </view>
+            </view>
+            <view wx:if="{{sponsor==1}}">
+                <text class="coinname" style="color:#F15A24;font-size:40rpx;font-family:MoveClubFont;">
+                    +{{price_increase*1}}
+                </text>
+            </view>
+            <view class="priceinfo" wx:else>
+                <view>
+                    <image src="/images/nb@2x.png"></image>
+                    <view>
+                        <block wx:if="{{type==1}}">
+                            {{bottomprice}}
+                        </block>
+                        <block wx:else>
+                            {{sellingpoints}}
+                        </block>
+                        <text style="font-size:20rpx;margin-left:3rpx;margin-right:3rpx;" wx:if="{{type==1}}">起</text>
+                    </view>
+                </view>
+                <view wx:if="{{originalprice}}">
+                    <rich-text nodes="<del>¥{{originalprice}}</del>"></rich-text>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

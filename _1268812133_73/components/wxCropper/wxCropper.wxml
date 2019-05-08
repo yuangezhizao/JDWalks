@@ -1,0 +1,15 @@
+<view class="image-cropper">
+    <view bindtap="_click" class="main">
+        <view class="content">
+            <view class="content_top bg_gray {{flag_bright?'':'bg_black'}}" style="height:{{cut_top}}px;"></view>
+            <view class="content_middle" style="height:{{height}}px;">
+                <view class="content_middle_left bg_gray {{flag_bright?'':'bg_black'}}" style="width:{{cut_left}}px"></view>
+                <view class="content_middle_middle" style="width:{{width}}px;height:{{height}}px;"></view>
+                <view class="content_middle_right bg_gray {{flag_bright?'':'bg_black'}}"></view>
+            </view>
+            <view class="content_bottom bg_gray {{flag_bright?'':'bg_black'}}"></view>
+        </view>
+        <image bindtouchend="_end" bindtouchmove="_move" bindtouchstart="_start" class="img" src="{{imgSrc}}" style="width:{{imgWidth?imgWidth+'px':'auto'}};height:{{imgHeight?imgHeight+'px':'auto'}};top:{{imgTop}}px;left:{{imgLeft}}px;transform:translate3d(-50%,-50%,0) scale({{scale}}) rotate({{rotate}}deg);"></image>
+        <canvas canvasId="image-cropper" class="image-cropper-canvas" disableScroll="true" style="width:{{width}}px;height:{{height}}px;left:{{canvas_left}}px;top:{{canvas_top}}px"></canvas>
+    </view>
+</view>

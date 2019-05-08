@@ -1,0 +1,22 @@
+<view class="share" wx:if="{{showCtx}}">
+    <view>
+        <button class="sharebtn mvbutton" openType="share">分享</button>
+    </view>
+    <canvas canvasId="myCanvas" class="mycanvas shadow"></canvas>
+    <view>
+        <button bindtap="changebg" class="mvbutton mvbuttonplain">换一张</button>
+        <button bindtap="chooseimage" class="mvbutton">上传照片</button>
+    </view>
+    <view bindtap="saveImage" class="next">
+        <button class="mvbutton">保存到相册</button>
+    </view>
+    <view class="sharetext">
+        <text> 生成图片为个人二维码</text>
+        <text>分享图片，邀请好友，免费换好礼</text>
+        <text bindtap="ctxdrawImage" style="font-size:20rpx;padding-top:30rpx;color:#333;">页面未显示？点我刷新</text>
+    </view>
+</view>
+<cropper disable_rotate="true" height="{{imgh}}" id="cropper" imgSrc="{{cropoersrc}}" min_scale="0.3" width="{{imgw}}" wx:if="{{cropoersrc}}"></cropper>
+<view class="page-container-margin" style="background-color:#FFFFFF;bottom:0rpx;width:750rpx;position:absolute;z-index:2;height:200rpx;display:flex;align-items:center;justify-content:center;" wx:if="{{cropoersrc}}">
+    <button bindtap="pushImg" class="mvbutton" style="width:640rpx;">确定</button>
+</view>

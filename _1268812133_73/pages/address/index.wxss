@@ -1,0 +1,9 @@
+@import "../../templates/address.wxss";
+
+@import "form.wxss";
+
+.footer .mvbutton {
+}
+
+.footer .mvbutton:nth-child(1) {
+}

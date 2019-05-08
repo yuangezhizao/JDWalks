@@ -1,0 +1,3 @@
+<import src="../../templates/common/foot.wxml"></import>
+<web-view src="{{src}}"></web-view>
+<template is="foot" data></template>

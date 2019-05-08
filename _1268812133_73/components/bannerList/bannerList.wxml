@@ -1,0 +1,6 @@
+<swiper autoplay="true" circular="true" indicatorActiveColor="#F15A24" indicatorColor="rgba(241,90,36,.3)" indicatorDots="true">
+    <swiper-item wx:for="{{bannerList}}" wx:key="idx">
+        <image bindtap="jump" class="slide-image" data-type="{{item.jumptype}}" data-url="{{item.jumpurl}}" data-value="{{item.jumpvalue}}" mode="aspectFill" src="{{item.imgurl}}" style="border-radius:0px;" wx:if="{{noradius}}"></image>
+        <image bindtap="jump" class="slide-image" data-type="{{item.jumptype}}" data-url="{{item.jumpurl}}" data-value="{{item.jumpvalue}}" mode="aspectFill" src="{{item.imgurl}}" wx:else></image>
+    </swiper-item>
+</swiper>

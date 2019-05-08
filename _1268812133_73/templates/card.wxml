@@ -1,0 +1,28 @@
+<template name="card">
+    <view class="card page-container-padding">
+        <view>
+            <navigator hoverClass="navigator-hover" url="/pages/goods/exchange?goodsid={{orderDetail[0].gid}}" wx:if="{{orderDetail[0].gtype==2}}">
+                <image mode="aspectFill" src="{{orderDetail[0].gpimgurl}}"></image>
+                <view>{{orderDetail[0].gname}}</view>
+            </navigator>
+            <navigator hoverClass="navigator-hover" url="/pages/goods/seckill?goodsid={{orderDetail[0].gid}}" wx:if="{{orderDetail[0].gtype==3}}">
+                <image mode="aspectFill" src="{{orderDetail[0].gpimgurl}}"></image>
+                <view>{{orderDetail[0].gname}}</view>
+            </navigator>
+        </view>
+        <view class="morecode" wx:if="{{!!orderDetail[0].exinfo[0]}}">
+            <view data-index="{{index}}" wx:for="{{orderDetail[0].exinfo}}" wx:key="idx">
+                <view bindtap="Clipboard" data-index="{{index}}" data-item="{{item}}" wx:for="{{item}}" wx:key="cidx">
+                    {{index}}:{{item}}
+                    <text style="font-size:20rpx;color:#999999;">复制</text>
+                </view>
+            </view>
+        </view>
+        <view wx:else>
+            <view bindtap="Clipboard" data-index="{{index}}" data-item="{{item}}" wx:for="{{orderDetail[0].exinfo}}" wx:key="idx">
+                {{index}}:{{item}}
+                <text style="font-size:20rpx;color:#999999;">复制</text>
+            </view>
+        </view>
+    </view>
+</template>

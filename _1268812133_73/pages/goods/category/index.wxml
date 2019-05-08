@@ -1,0 +1,9 @@
+<view class="ad shadow" wx:if="{{bannerList.length>0}}">
+    <banner-list bannerList="{{bannerList}}"></banner-list>
+</view>
+<view class="page-container-margin">
+    <goods-list categorycol="2" coinname="coinname" goodsList="{{goodsList}}" goodslist="goodslist" shadow="shadow" systime="{{systime}}"></goods-list>
+    <view class="weui-loadmore weui-loadmore_line">
+        <view class="weui-loadmore__tips weui-loadmore__tips_in-line">我是有底线的</view>
+    </view>
+</view>

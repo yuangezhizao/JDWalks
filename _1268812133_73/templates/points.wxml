@@ -1,0 +1,6 @@
+<template name="points">
+    <view class="points">
+        <view>{{description}}</view>
+        <view>+{{value}}点</view>
+    </view>
+</template>

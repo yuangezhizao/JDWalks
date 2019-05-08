@@ -1,0 +1,8 @@
+/*! Import by _C[7], whose real path we cannot found. */
+page {
+    background-color: #F2F2F2;
+}
+/*! Import end */
+.points:first-child {
+    border-top: 0px;
+}

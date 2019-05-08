@@ -1,0 +1,18 @@
+<import src="../../templates/goods.wxml"></import>
+<import src="../../templates/common/head.wxml"></import>
+<template is="head" data></template>
+<view>
+    <view class="header" wx:if="{{bannerList.length>0}}">
+        <banner-list bannerList="{{bannerList}}"></banner-list>
+    </view>
+    <view class="body page-container-margin">
+        <template is="goodssale" data="{{...item,coinname:coinname}}" wx:for="{{goodsList}}" wx:key="idx"></template>
+    </view>
+</view>
+<view class="weui-loadmore weui-loadmore_line" hidden="{{havenext}}">
+    <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无更多记录</view>
+</view>
+<view class="nomore loadmore" hidden="{{!havenext}}">
+    <button bindtap="Handlelower" disabled="{{disabled}}" loading="{{loading}}" plain="true" size="mini" type="success"> 加载更多
+    </button>
+</view>

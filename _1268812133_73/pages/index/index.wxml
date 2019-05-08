@@ -1,0 +1,106 @@
+<vantNoticebar bindclick="gonoticedetail" bindcloseclick="closenotice" customClass="noticebar" leftIcon="/images/notice.png" mode="closeable" rightIcon="/images/noticeclose.png" scrollable="true" speed="20" text="{{noticetxt}}" wx:if="{{shownotice}}"></vantNoticebar>
+<view style="background:url('http://moveclub-file.oss-cn-hangzhou.aliyuncs.com/mpms/20181129/1543484884-5bffb5d492a13.png') no-repeat;background-size:contain;" wx:if="{{authWerun&&authLocal}}">
+    <view class="indextop" style="height:{{ctxH+1}}rpx;padding-top:30rpx;">
+        <view class="draw shadow" style="height:{{ctxH}}rpx;">
+            <view animation="{{animationData[index]}}" class="element" style="left:{{ctxData[index][0]}};top:{{ctxData[index][1]}};height:{{ctxheight}}rpx;" wx:if="{{countpaopao>0&&item.go!=99}}" wx:for="{{coins}}" wx:key="idx">
+                <form reportSubmit bindreset="formReset" bindsubmit="moveCtr">
+                    <button class="formbtn coin" data-index="{{index}}" data-message="{{item.message}}" data-pid="{{item.id}}" data-type="{{item.type}}" data-value="{{item.value}}" data-x="{{ctxData[index][0]}}" data-y="{{ctxData[index][1]}}" formType="submit" style="{{style}}">
+                        <image src="../../images/coin@3x.png" style="height:{{ctxwidth-1}}rpx;width:{{ctxwidth-1}}rpx;"></image>
+                        <text class="cointext" style="top:-{{ctxwidth-1}}rpx;line-height:{{ctxwidth-1}}rpx;height:{{ctxwidth-1}}rpx;width:{{ctxwidth-1}}rpx;">{{item.value}}</text>
+                        <text class="coindesc" style="top:-{{ctxwidth-10}}rpx;">{{item.description}}</text>
+                    </button>
+                </form>
+            </view>
+            <view animation="{{animationcircle}}" bindtap="gopointslist" class="circle" style="width:{{circleW}}rpx;height:{{circleH}}rpx;top:{{circleTop}}rpx;left:{{circleLeft}}rpx;">
+                <view class="stpes" style="width:93%;height:93%;border:5rpx solid #fff;">
+                    <view style="display:flex;">
+                        <text style="font-family:DIN Condensed;">{{userInfo.totalpoint}}</text>
+                    </view>
+                    <text>成长币</text>
+                </view>
+            </view>
+            <view class="nopaopao" style="top:{{(circleH+circleTop)/2}}rpx;" wx:if="{{countpaopao==0}}">
+                <image bindtap="gopointslist" src="../../images/pplist@3x.png"></image>
+                <image bindtap="gogl" src="../../images/ppshare@3x.png"></image>
+            </view>
+            <button class="mvbutton share" openType="share">邀请好友得成长币</button>
+            <view class="currentsteps">
+                <view>
+                    今日成长币:{{currentPoints}}
+                </view>
+                <view></view>
+                <view bindtap="gosteps">
+                    今日步数:{{currentstep}}
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="body">
+        <view class="shadow ad indexmenu">
+            <view bindtap="handleMenu" data-link="{{item.link}}" wx:for="{{indexMenu}}" wx:key="idx">
+                <image src="{{item.icon}}"></image>
+                <text>{{item.text}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="body">
+        <view class="ad shadow" wx:if="{{adList.length}}">
+            <banner-list bannerList="{{adList}}" shadow="shadow"></banner-list>
+        </view>
+    </view>
+    <block wx:if="{{GoodsList.length>0}}">
+        <block wx:for="{{GoodsList}}" wx:key="idx">
+            <view class="title page-container-margin" style="margin-top:40rpx;">
+                <view class="categoryname">{{item.name}}</view>
+                <view wx:if="{{item.total>item.goods.length}}">
+                    <navigator hoverClass="navigator-hover" url="/pages/goods/category/index?categoryid={{item.id}}">
+                        更多
+                    </navigator>
+                </view>
+            </view>
+            <view class="body page-container-margin ">
+                <goods-list categorycol="{{item.col}}" coinname="coinname" goodsList="{{item.goods}}" goodslist="goodslist" shadow="shadow" systime="{{systime}}"></goods-list>
+            </view>
+        </block>
+    </block>
+    <view style="display:flex;justify-content:center;" wx:else>
+        <image lazyLoad="true" mode="widthFix" src="{{loadingimg}}" style="width:350rpx;"></image>
+    </view>
+    <view class="weui-loadmore weui-loadmore_line">
+        <view class="weui-loadmore__tips weui-loadmore__tips_in-line">商品不定时更新</view>
+    </view>
+    <zan-popup bindclose="close" overlay="false" show="{{remind}}">
+        <view class="remind">
+            <image mode="widthFix" src="/images/remindbg.png" style="width:100%;"></image>
+            <view class="text">
+                <view>您已经连续运动{{userInfo.continuity}}天</view>
+                <view>连续签到7/30天可获得额外成长币</view>
+            </view>
+            <form reportSubmit bindsubmit="remidTomorrow">
+                <view class="remindtime">
+                    <view>
+                        <view>明日提醒时间</view>
+                        <picker bindchange="bindTimeChange" name="hour" range="{{remindrange}}" rangeKey="show" value="{{time}}">
+                            {{remindrange[time]['show']}}
+                        </picker>
+                    </view>
+                    <button class="mvbutton" formType="submit">预约明日提醒</button>
+                    <button bindtap="close" class="mvbuttonplain">不用了</button>
+                </view>
+            </form>
+        </view>
+    </zan-popup>
+    <zan-popup bindclose="closeforbidden" overlay="false" show="{{forbidden}}">
+        <view class="remind forbidden">
+            <image bindtap="closeforbidden" src="/images/close.png" style="position:absolute;top:15rpx;right:15rpx;width:50rpx;height:50rpx;"></image>
+            <view>
+                哎呀~您的账号因涉嫌违规操作，暂不能参与活动
+            </view>
+            <button class="mvbutton" openType="contact">联系客服</button>
+        </view>
+    </zan-popup>
+</view>
+<view class="openseting" wx:else>
+    <text class="infos" style="text-align:center;margin-top:50rpx;">请授权您的微信运动步数和地理位置后后再访问当前页面</text>
+    <button bindtap="openSetting" class="mvbutton">立即授权</button>
+</view>

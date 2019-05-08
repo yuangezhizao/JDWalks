@@ -1,0 +1,28 @@
+<view class="page-container-margin" style="padding-bottom:30rpx;height:auto;">
+    <block wx:if="{{GoodsList.length>0}}">
+        <block wx:for="{{GoodsList}}" wx:key="idx">
+            <view class="title" style="margin-top:40rpx;">
+                <view class="categoryname">{{item.name}}</view>
+                <view wx:if="{{item.total>item.goods.length}}">
+                    <navigator hoverClass="navigator-hover" url="/pages/goods/category/index?categoryid={{item.id}}">
+                        更多
+                    </navigator>
+                </view>
+            </view>
+            <view class="body">
+                <goods-list categorycol="{{item.col}}" coinname="coinname" goodsList="{{item.goods}}" goodslist="goodslist" shadow="shadow" systime="{{systime}}"></goods-list>
+            </view>
+        </block>
+    </block>
+    <view class="title">
+        <view class="categoryname">新人赚币任务</view>
+        <view>
+            <navigator hoverClass="navigator-hover" url="/pages/rule/index?rulename=boon">
+                任务说明
+            </navigator>
+        </view>
+    </view>
+    <view class="body" wx:if="{{taskList.length>0}}">
+        <task-list bindrefreshTask="getTaskList" czb="czb" mvbutton="mvbutton" pageContainerPadding="page-container-padding" shadow="shadow" taskList="{{taskList}}"></task-list>
+    </view>
+</view>

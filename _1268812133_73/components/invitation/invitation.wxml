@@ -1,0 +1,29 @@
+<view class="inviterlist">
+    <view class="top">
+        <text class="title">邀请好友得成长币</text>
+        <text class="dec">每邀请5人 第5人翻倍</text>
+    </view>
+    <text bindtap="gomyinvitation" class="myinvitation">邀请记录</text>
+    <view class="inviter">
+        <view class="inviter-item" wx:for="{{c_inviter_list}}" wx:key="idx">
+            <button class="avatar" disabled="true" openType="share" plain="true" wx:if="{{item.avatarurl!=''}}">
+                <image src="{{item.avatarurl}}"></image>
+            </button>
+            <button class="avatar" openType="share" plain="true" wx:else>
+                <image src="../../images/add@3x.png"></image>
+            </button>
+            <view wx:if="{{index==4}}">
+          +16
+        </view>
+            <view class="coin" wx:else>
+          +8
+        </view>
+            <view class="state" wx:if="{{item.state=='待发放'}}">
+          {{item.state}}
+        </view>
+            <view class="state complete" wx:else>
+          {{item.state}}
+        </view>
+        </view>
+    </view>
+</view>

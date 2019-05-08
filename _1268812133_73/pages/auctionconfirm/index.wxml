@@ -1,0 +1,54 @@
+<import src="../../templates/common/head.wxml"></import>
+<template is="head" data></template>
+<view bindtap="editaddress" class="noaddress" wx:if="{{addressinfo.name==''}}">
+    <image src="../../images/add.png"></image>
+    <text>添加收货地址</text>
+</view>
+<view wx:else>
+    <view bindtap="editaddress" class="address page-container-padding" data-addressid="{{addressinfo.id}}" hoverClass="activeview">
+        <view></view>
+        <view>
+            <view>
+                <text>{{addressinfo.name}}</text>
+                <text>{{addressinfo.mobile}}</text>
+            </view>
+            <view>
+                <text>{{addressinfo.province}}</text>
+                <text>{{addressinfo.city}}</text>
+                <text>{{addressinfo.district}}</text>
+            </view>
+            <view>
+                {{addressinfo.address}}
+            </view>
+        </view>
+        <view>
+            <image src="../../images/access.png"></image>
+        </view>
+    </view>
+</view>
+<view class="goodsori page-container-padding">
+    <view></view>
+    <view>
+        <view>
+            <image mode="aspectFill" src="{{detail.imgurl[0]}}"></image>
+        </view>
+        <view>
+            <view>
+                <view>{{detail.name}}</view>
+            </view>
+            <view class="pointamount">
+                <view>{{mypoint}}
+                    <text style="font-size:30rpx;">成长币</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="footer">
+    <view>
+        实付成长币:{{mypoint}}
+    </view>
+    <view>
+        <button bindtap="submit" class="mvbutton" disabled="{{disabled}}">立即结算</button>
+    </view>
+</view>

@@ -1,0 +1,18 @@
+<import src="../../templates/goodscolmore/goods.wxml"></import>
+<import src="../../templates/goodscol1/goods.wxml"></import>
+<import src="../../templates/goods.wxml"></import>
+<view class="goodslist" wx:if="{{categorycol==2}}">
+    <template is="goodssale" data="{{...item}}" wx:for="{{cgoodsList}}" wx:key="idx"></template>
+</view>
+<block wx:else>
+    <template is="goodscol1" data="{{...item}}" wx:if="{{categorycol==1}}" wx:for="{{cgoodsList}}" wx:key="idx"></template>
+</block>
+<view class="mallx" wx:if="{{categorycol==3}}">
+    <scroll-view scrollX style="width: 100%">
+        <view style="width:100%;display:flex;">
+            <view bindtap="godetail" class="mallxbody" data-id="{{item.id}}" data-type="{{item.type}}" wx:if="{{categorycol==3}}" wx:for="{{cgoodsList}}" wx:key="idx">
+                <template is="goodscolmore" data="{{...item}}"></template>
+            </view>
+        </view>
+    </scroll-view>
+</view>

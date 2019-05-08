@@ -1,0 +1,21 @@
+<template name="goodscolmore">
+    <view>
+        <image mode="aspectFill" src="{{imgurl[0]}}"></image>
+        <image src="/images/gstate{{gstate}}@2x.png" wx:if="{{type==1}}"></image>
+    </view>
+    <view class="cardbody">
+        <view class="priceinfomore">
+            <image src="/images/nb@2x.png"></image>
+            <view>
+                <block wx:if="{{type==1}}">
+                        {{bottomprice}}
+                    </block>
+                <block wx:else>
+                        {{sellingpoints}}
+                    </block>
+                <text style="font-size:20rpx;margin-left:3rpx;margin-right:3rpx;" wx:if="{{type==1}}">起</text>
+            </view>
+        </view>
+        <view wx:for="{{tags}}" wx:key="tidx">{{item}}</view>
+    </view>
+</template>

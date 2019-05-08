@@ -1,0 +1,8 @@
+{
+    "navigationBarTitleText": "更多物品",
+    "enablePullDownRefresh": true,
+    "usingComponents": {
+        "goods-list": "/components/goodsList/goodsList",
+        "banner-list": "/components/bannerList/bannerList"
+    }
+}

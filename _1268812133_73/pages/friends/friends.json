@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "我的邀请",
+    "enablePullDownRefresh": false,
+    "usingComponents": {
+        "com-month": "../../components/commonthlist/commonthlist"
+    }
+}

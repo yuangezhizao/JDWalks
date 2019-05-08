@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "全部记录",
+    "usingComponents": {
+        "step-list": "/components/comstep/comstep"
+    },
+    "enablePullDownRefresh": true
+}

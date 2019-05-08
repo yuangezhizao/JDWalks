@@ -1,0 +1,113 @@
+<import src="../../templates/common/head.wxml"></import>
+<import src="../../templates/common/foot.wxml"></import>
+<template is="head" data></template>
+<view>
+    <view class="header">
+        <swiper indicatorDots="true">
+            <swiper-item wx:for="{{detail.imgurl}}" wx:key="idx">
+                <image bindtap="previewimage" class="slide-image" mode="aspectFill" src="{{item}}"></image>
+            </swiper-item>
+        </swiper>
+    </view>
+    <view class="body page-container-margin">
+        <view class="middle">
+            <view>
+                <text>{{detail.name}}</text>
+            </view>
+            <view bindtap="like" wx:if="{{detail.islike==1}}">
+                <image src="../../images/likea@3x.png"></image>
+                <text style="color:#F15A24;"> 已收藏</text>
+            </view>
+            <view bindtap="like" class="like" wx:else>
+                <image src="../../images/like@3x.png"></image>
+                收藏
+            </view>
+        </view>
+        <view>
+            <text wx:if="{{detail.state==0}}">兑换开始时间:{{detail.inventory[0].starttime}}</text>
+        </view>
+        <view class="price">
+            <view>
+                <image src="/images/nb@2x.png"></image>
+                <view>{{detail.sellingpoints*1}}</view>
+                <view class=""></view>
+            </view>
+            <view>
+                <rich-text nodes="<del style='font-size:12px;color:#AAAAAA;'>¥ {{detail.originalprice}}</del>"></rich-text>
+            </view>
+        </view>
+        <view class="from">
+            <view>赞助商</view>
+            <view>{{detail.from}}
+                <text style="color:#999;"> ></text>
+            </view>
+        </view>
+    </view>
+    <view class="detail">
+        <rich-text nodes="{{detail.intro}}"></rich-text>
+    </view>
+    <view class="footer">
+        <button bindtap="handleInventoryPopup" class="mvbutton" disabled="{{detail.disabled}}">{{tips}}
+        </button>
+    </view>
+    <zan-popup show="{{showpopup}}">
+        <view class="help">
+            <view bindtap="togglepopup" class="close">
+                <image src="../../images/close.png"></image>
+            </view>
+            <image src="{{detail.imgurl[0]}}"></image>
+            <view wx:if="{{type==1}}">拍卖需支付</view>
+            <view wx:else>兑换需支付</view>
+            <view class="value">{{detail.sellingpoints*stepper.stepper}}
+                <text class="coinname">{{coinname}}</text>
+            </view>
+            <view class="my">我的{{coinname}}</view>
+            <view class="value">{{mypoints}}
+                <text class="coinname">{{coinname}}</text>
+            </view>
+            <view>
+                您的{{coinname}}不足,请继续努力吧
+            </view>
+        </view>
+    </zan-popup>
+    <zan-popup show="{{showinventorypopup}}" type="bottom">
+        <view class="inventory">
+            <view>
+                <view>
+                    <image src="{{detail.imgurl[0]}}"></image>
+                </view>
+                <view>
+                    <text>{{detail.sellingpoints}}成长币</text>
+                    <text>我的成长币:{{mypoints}}</text>
+                    <text>库存:{{stock}}</text>
+                </view>
+                <view bindtap="handleInventoryPopup">
+                    <image src="../../images/close.png"></image>
+                </view>
+            </view>
+            <view>
+                <view>
+                    请选择规格:
+                </view>
+                <view>
+                    <view bindtap="handleInventory" class="radio {{selectinventory==item.id?'activeradio':''}}" data-id="{{item.id}}" data-limit="{{item.limit}}" data-stock="{{item.stock}}" wx:for="{{detail.inventory}}" wx:key="idx">
+                        {{item.property}}
+                    </view>
+                </view>
+            </view>
+            <view>
+                <view>
+                    兑换数量:
+                </view>
+                <zan-stepper bind:change="handleZanStepperChange" max="{{stepper.max}}" min="{{stepper.min}}" stepper="{{stepper.stepper}}"></zan-stepper>
+            </view>
+            <view>
+                <button bindtap="buy" class="mvbutton">
+                    立即抢购
+                </button>
+            </view>
+        </view>
+    </zan-popup>
+</view>
+<import src="../../templates/wxParse/wxParse.wxml"></import>
+<template is="foot" data></template>

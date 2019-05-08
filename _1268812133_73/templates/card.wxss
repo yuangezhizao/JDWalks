@@ -1,0 +1,54 @@
+.card {
+    background-color: #fff;
+    margin-top: 24rpx;
+    border-radius: 16rpx;
+    font-size: 32rpx;
+}
+
+.card image {
+    height: 88rpx;
+    width: 88rpx;
+}
+
+.card>view:nth-child(1)>navigator {
+    height: 120rpx;
+    border-bottom: 1rpx dotted #cccccc;
+    display: flex;
+    align-items: center;
+}
+
+.card>view:nth-child(1)>navigator>view {
+    padding-left: 20rpx;
+}
+
+.card>view:nth-child(2) {
+    display: flex;
+    align-items: center;
+    height: 70rpx;
+    justify-content: flex-end;
+    font-family: 'MoveClubFont';
+}
+
+.card>view:nth-child(2)>view {
+    padding-right: 20rpx;
+    font-family: 'MoveClubFont';
+    font-size: 32rpx;
+}
+
+.morecode {
+    flex-direction: column;
+    height: auto!important;
+    align-items: flex-end;
+}
+
+.morecode>view {
+    width: 100%;
+    padding: 10rpx 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.morecode>view:last-child {
+    border-bottom: 0rpx dotted #aaa;
+}

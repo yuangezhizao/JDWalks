@@ -1,0 +1,24 @@
+<import src="../../templates/common/head.wxml"></import>
+<import src="../../templates/common/foot.wxml"></import>
+<template is="head" data></template>
+<view style="background-color:#fff;">
+    <view class="points page-container-margin" wx:for="{{pointslist}}" wx:key="idx">
+        <view>
+            <view>
+                <image src="{{item.fromuavatar}}"></image>
+            </view>
+            <view>
+                <view>{{item.description}}</view>
+                <view>{{item.recorddate}}</view>
+            </view>
+        </view>
+        <view style="{{item.value<0?'color:#0B9851;':''}}">
+            <text wx:if="{{item.value>0}}">+</text>
+                    {{item.value}}
+                </view>
+    </view>
+</view>
+<view class="weui-loadmore weui-loadmore_line" hidden="{{havenext}}">
+    <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无更多记录</view>
+</view>
+<template is="foot" data></template>

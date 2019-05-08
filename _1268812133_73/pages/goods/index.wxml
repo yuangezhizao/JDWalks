@@ -1,0 +1,123 @@
+<import src="../../templates/common/head.wxml"></import>
+<import src="../../templates/common/foot.wxml"></import>
+<template is="head" data></template>
+<view>
+    <detail-header detail="{{detail}}" pageContainerMargin="page-container-margin" shadow="shadow"></detail-header>
+    <view class="header">
+        <view class="statebar page-container-padding">
+            <view>
+                {{tips}}
+            </view>
+            <view class="resettime">
+                <view>
+                    {{detail.desctips}}
+                </view>
+                <view wx:if="{{detail.state==0||detail.state==1||detail.state==2}}">
+                    <view wx:if="{{resettime[0]!=0}}">
+                        {{resettime[0]}}
+                    </view>
+                    <view class="text bottom" wx:if="{{resettime[0]!=0}}">天</view>
+                    <view> {{resettime[1]}}</view>
+                    <view class="text">:</view>
+                    <view> {{resettime[2]}}</view>
+                    <view class="text">:</view>
+                    <view> {{resettime[3]}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="auctionhelp shadow" style="margin-bottom:30rpx;" wx:if="{{detail.state==1||detail.state==2}}">
+        <view class="assistance page-container-padding">
+            <view>好友助力</view>
+            <view></view>
+            <view>
+                <view>
+                    <view>{{detail.auction.myorder.helppoint==undefined?0:detail.auction.myorder.helppoint}}</view>
+                    <view>好友助力</view>
+                </view>
+                <view>
+                    <view>{{detail.auction.myorder.point==undefined?0:detail.auction.myorder.point}}</view>
+                    <view>我的出价</view>
+                </view>
+            </view>
+        </view>
+        <view class="assistanceuser">
+            <view wx:if="{{detail.auction.helps.length==0}}">
+                <view>
+                    <button class="iconbutton" openType="share" wx:if="{{detail.preorder==1}}">
+                        <image src="/images/add.png"></image>
+                    </button>
+                    <image bindtap="nopreorder" src="/images/add.png" wx:else></image>
+                </view>
+                <view>
+                    每邀请到一位好友，竞拍出价即可增加{{detail.price_increase*1}}成长币
+                </view>
+                <view>
+                    邀请新用户可增加{{detail.price_increase*2}}成长币
+                </view>
+            </view>
+            <view wx:else>
+                <view>
+                    <image class="avatar" src="{{item.avatarurl}}" wx:for="{{detail.auction.helps}}" wx:key="idx"></image>
+                </view>
+                <view>
+                    {{helptips}}
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="ad shadow" style="margin-bottom:30rpx;" wx:if="{{bannerList.length}}">
+        <banner-list bannerList="{{bannerList}}" shadow="shadow"></banner-list>
+    </view>
+    <detail-tab class="detail" detail="{{detail.intro}}" rule="{{ruleImg}}" shadow="shadow"></detail-tab>
+    <view style="height:130rpx;"></view>
+    <view class="footer newfooter page-container-padding" wx:if="{{detail.state==1||detail.state==2}}">
+        <button bindtap="prebuy" class="mvbutton" disabled="{{disabled}}">{{detail.btntips}}</button>
+        <view class="btnmiddle"></view>
+        <button class="mvbutton" openType="share" wx:if="{{detail.preorder==1}}">邀请好友</button>
+        <button bindtap="nopreorder" class="mvbutton" wx:else>邀请好友</button>
+    </view>
+    <view class="footer  page-container-padding" wx:else>
+        <button class="mvbutton" disabled="{{disabled}}">{{detail.btntips}}</button>
+    </view>
+    <zan-popup show="{{showstepper}}" type="bottom">
+        <view class="prebuy">
+            <view bindtap="togglestepperpopup" class="close">
+                <image src="../../images/close.png"></image>
+            </view>
+            <view>
+                <view class="stepper">
+                    <view bindtap="plus" class="plus" hoverClass="activeview"></view>
+                    <view>
+                        <view>{{detail.mybuypoint*1}}</view>
+                        <view>个人出价</view>
+                    </view>
+                    <view bindtap="minus" class=" minus" hoverClass="activeview" wx:if="{{detail.mybuypoint*1-detail.price_increase*1>=detail.bottomprice*1}}"></view>
+                    <view class="minus disabledbtn" hoverClass="activeview" wx:else></view>
+                </view>
+                <view>
+                    <view>{{helpcount}}</view>
+                    <view>好友助力</view>
+                </view>
+                <view>
+                    <view>{{detail.mybuypoint*1+helpcount*1}}</view>
+                    <view>总出价</view>
+                </view>
+            </view>
+            <view class="page-container-padding">
+                <button bindtap="buy" class="mvbutton">确认出价</button>
+            </view>
+        </view>
+    </zan-popup>
+    <zan-popup closeOnClickOverlay overlay="false" show="{{showpopup}}">
+        <view class="help">
+            <view bindtap="togglepopup" class="close">
+                <image src="../../images/close.png"></image>
+            </view>
+            <view>
+                <button class="mvbutton" openType="share">你的成长币不足,邀请好友助力</button>
+            </view>
+        </view>
+    </zan-popup>
+</view>
+<template is="foot" data></template>

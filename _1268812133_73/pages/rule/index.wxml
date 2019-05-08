@@ -1,0 +1,3 @@
+<view>
+    <image mode="widthFix" src="{{ruleImg}}" style="width:750rpx;"></image>
+</view>

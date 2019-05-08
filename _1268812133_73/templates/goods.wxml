@@ -1,0 +1,36 @@
+<template name="goodssale">
+    <view bindtap="godetail" class="mall shadow" data-id="{{id}}" data-type="{{type}}" hoverClass="activeview" id="goodsex">
+        <view>
+            <image mode="aspectFill" src="{{imgurl[0]}}"></image>
+            <image src="/images/gstate{{gstate}}@2x.png" wx:if="{{type==1}}"></image>
+        </view>
+        <view class="cardbody">
+            <view>
+                <view>
+                    {{name}}
+                </view>
+                <view>
+                    <view wx:for="{{tags}}" wx:key="tidx">{{item}}</view>
+                </view>
+            </view>
+            <view class="priceinfo">
+                <view>
+                    <image src="/images/nb@2x.png"></image>
+                    <view>
+                        <block wx:if="{{type==1}}">
+                            {{bottomprice}}
+                            <text style="font-size:20rpx;margin-left:3rpx;margin-right:3rpx;">起</text>
+                        </block>
+                        <block wx:else>
+                            {{sellingpoints}}
+                            <text class="school_price" wx:if="{{dpoint*1>0}}">学生价{{sellingpoints*1-dpoint*1}}</text>
+                        </block>
+                    </view>
+                </view>
+                <view wx:if="{{originalprice&&dpoint*1==0}}">
+                    <rich-text nodes="<del>¥{{originalprice}}</del>"></rich-text>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

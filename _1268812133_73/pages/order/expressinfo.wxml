@@ -1,0 +1,1 @@
+<van-steps :active="0" activeColor="#F15A24" direction="vertical" steps="{{steps}}"></van-steps>

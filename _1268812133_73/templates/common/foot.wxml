@@ -1,0 +1,7 @@
+<template name="foot">
+    <navigator hoverClass="navigator-hover" openType="switchTab" url="/pages/index/index">
+        <view id="foot">
+            <image class="goindex" src="../../images/indexwhite@3x.png"></image>
+        </view>
+    </navigator>
+</template>

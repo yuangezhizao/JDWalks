@@ -1,0 +1,45 @@
+@import "../../templates/goodsori.wxss";
+
+@import "../../templates/address.wxss";
+
+.goodsori>view:nth-child(1) {
+    display: none;
+}
+
+.goodsori {
+    height: 223rpx;
+}
+
+.noaddress {
+    height: 123rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+}
+
+.noaddress image {
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.noaddress text {
+    margin-left: 10rpx;
+    font-size: 30rpx;
+    color: #cccccc;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-around;
+    color: #F15A24;
+}
+
+.footer .mvbutton {
+    width: 267rpx;
+    height: 70rpx;
+}
+
+.address {
+    border-top: 1px solid #efefef;
+}
